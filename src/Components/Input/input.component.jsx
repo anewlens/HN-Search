@@ -1,14 +1,16 @@
 import React from 'react' 
 import './input.styles.scss'
 
-const SearchInput = () => {
+const TextInput = ({placeholder, handler, value}) => {
 
     return (
-        <input type='text' 
-                placeholder='article, author, comment...' 
-                onChange={() => console.log('type type type')}
-                className='input' />
+        <input 
+            type='text' 
+            className='input' 
+            placeholder={placeholder}
+            value={value}
+            onChange={handler}/>
     )
 }
 
-export default SearchInput
+export default TextInput
