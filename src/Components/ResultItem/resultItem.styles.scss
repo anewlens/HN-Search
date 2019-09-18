@@ -1,0 +1,13 @@
+
+.resultItem {
+    margin: 1.6rem;
+    padding: 1.6rem;
+    border: 1px solid grey;
+
+    color: inherit;
+    text-decoration: none;
+
+    &-title {
+        font-size: 2rem;
+    }
+}

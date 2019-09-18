@@ -1,0 +1,15 @@
+.customButton {
+    transition: all .1s;
+    width: auto;
+    margin: 1.2rem;
+    border: 1px solid black;
+    padding: .4rem .8rem;
+
+    background: cornflowerblue;
+
+    color: white;
+
+    &:active {
+        transform: translateY(2px)
+    }
+}
