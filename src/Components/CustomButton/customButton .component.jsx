@@ -1,9 +1,9 @@
 import React from 'react'
 import './customButton.styles.scss'
 
-const CustomButton = ({children, handler}) => (
-    <button type='button' onClick={handler} className='customButton'>
-        {children}
+const CustomButton = props => (
+    <button {...props} className='customButton'>
+        {props.children}
     </button>
 )
 

@@ -1,16 +1,14 @@
 import React from 'react'
+import ResultItemStory from './ResultItem-story.component'
+import ResultItemComment from './ResultItem-comment.component'
 import './resultItem.styles.scss'
 
-const ResultItem = () => { 
-    return (
-        <div className="resultItem" >
-                <h3 className="resultItem-title">Relicensing React, Jest, Flow, and Immutable.js</h3>
-                <p className="resultItem-date">Jan 13, 2019</p>
-                <p className="resultItem-author">dwwoelfel</p>
-                <p className="resultItem-points">2,100 points</p>
-                <p className="resultItem-comments">1000 comments</p>
-        </div>
-    )
+const ResultItem = ({ result }) => { 
+    if (result._tags.includes('story')) {
+        return <ResultItemStory result={result}/>
+    } else if (result._tags.includes('comment')) {
+        return <ResultItemComment result={result}/>
+    } else return null
 }
 
 export default ResultItem
