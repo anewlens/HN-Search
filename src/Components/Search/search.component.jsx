@@ -1,32 +1,36 @@
 import React, { useState } from 'react' 
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { setResults } from '../../redux/results/actions.results'
+import { addQuery } from '../../redux/history/actions.history'
+import queryAPI from '../../utils/queryAPI.utils'
 import TextInput from '../Input/input.component'
 import CustomButton from '../CustomButton/customButton .component'
 import './search.styles.scss'
 
-const Search = ({ setResults }) => {
+const Search = ({ setResults, addQueryToHistory }) => {
 
     const [searchTerm, setSearchTerm] = useState('')
+    const history = useSelector(state => state.history)
 
-    const queryAPI = e => {
+
+    const handleSubmit = e => {
         e.preventDefault()
 
-        const query = searchTerm
-        
-        if (query) {
-            fetch(`http://hn.algolia.com/api/v1/search?query=${query}`)
-                .then(res => res.json())
-                .then(res => {
-                    setResults(res)
-                    setSearchTerm('')
-                })
-                .catch(error => console.log(error))
-        }
+        searchTerm && queryAPI(searchTerm)
+                        .then(async res => {
+                            await setResults(res)
+
+                            if (!history.includes(res.query)) {
+                                await addQueryToHistory(res.query)
+                            }
+
+                            setSearchTerm('')
+                        })
+                        .catch(error => console.log(error))
     }
 
     return (
-        <form onSubmit={queryAPI} className="search">
+        <form onSubmit={handleSubmit} className="search">
                 <TextInput 
                     placeholder='article, author, comment...' 
                     value={searchTerm}
@@ -40,7 +44,8 @@ const Search = ({ setResults }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setResults: results => dispatch(setResults(results))
+    setResults: results => dispatch(setResults(results)),
+    addQueryToHistory: query => dispatch(addQuery(query))
 })
 
 export default  connect(null, mapDispatchToProps)(Search)
