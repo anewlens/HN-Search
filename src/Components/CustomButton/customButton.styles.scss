@@ -9,6 +9,12 @@
 
     color: white;
 
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 1rem rgba(0,0,0, .2);
+    }
+
     &:active {
         transform: translateY(2px)
     }

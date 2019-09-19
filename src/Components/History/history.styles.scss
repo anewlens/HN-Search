@@ -1,11 +1,19 @@
 .history {
     display: flex;
     justify-content: center;
-    color: grey;
-
+    flex-wrap: wrap;
+    padding: 0 5vw;
+    min-height: 3.2rem;
+    max-width: 95vw;
+    
     &-term {
+        color: grey;
         font-size: 1.6rem;
-        margin-right: 1.6rem;
+        margin: .8rem;
         cursor: pointer;
+
+        &:hover {
+            color: black;
+        }
     }
 }

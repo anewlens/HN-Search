@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './customButton.styles.scss'
 
 const CustomButton = props => (
@@ -6,5 +7,9 @@ const CustomButton = props => (
         {props.children}
     </button>
 )
+
+CustomButton.propTypes = {
+    type: PropTypes.string.isRequired
+}
 
 export default CustomButton

@@ -9,16 +9,20 @@ const History = () => {
     const history = useSelector(state => state.history)
     const dispatch = useDispatch()
 
-    const queryOldTerm = queryTerm => 
+    const queryTermFromHistory = queryTerm => 
         queryAPI(queryTerm)
         .then(res => dispatch(setResults(res)))
         .catch(err => console.log(err))
 
     return (
         <span className='history'>
-            {history.map(term => (
-                <p onClick={() => queryOldTerm(term)} className="history-term">{term}</p>
-            ))}
+            {
+                history.map((term, i) => (
+                    <p key={i} onClick={() => queryTermFromHistory(term)} className="history-term">
+                        {term}
+                    </p>
+                ))
+            }
         </span>
     )
 }

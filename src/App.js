@@ -7,12 +7,12 @@ import History from './Components/History/history.component';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <Header />
       <Search />
       <History />
       <Results />
-    </div>
+    </main>
   )
 }
 
