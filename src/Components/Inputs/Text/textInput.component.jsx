@@ -1,13 +1,13 @@
 import React from 'react' 
 import PropTypes from 'prop-types'
-import './input.styles.scss'
+import './textInputs.styles.scss'
 
 const TextInput = props => {
 
     return (
         <input 
             type='text' 
-            className='input' 
+            className='textInput' 
             {...props} />
     )
 }

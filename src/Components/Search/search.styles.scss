@@ -1,4 +1,15 @@
 .search {
     display: flex;
+    flex-direction: column;
     margin-top: 2.4rem;
+
+    &-bar {
+        display: flex;
+    }
+
+    &-radios {
+        display: flex;
+        margin-bottom: .8rem;
+        font-size: 1.2rem;
+    }
 }
