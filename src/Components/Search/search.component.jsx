@@ -55,12 +55,12 @@ const Search = ({ setResults, addQueryToHistory }) => {
 
             <span className='search-radios'>
                 Sort By:
-                {sortList.map(item => <RadioInput  name={item} group='sort' checked={sort === item} onChange={e => setSort(e.target.value)}/>)}
+                {sortList.map((item, i) => <RadioInput key={i} name={item} group='sort' checked={sort === item} onChange={e => setSort(e.target.value)}/>)}
             </span>
 
             <span className='search-radios'>
                 Filter:
-                {filterList.map(item => <RadioInput  name={item} group='filter' checked={filter === item} onChange={e => setFilter(e.target.value)}/>)}
+                {filterList.map((item, i) => <RadioInput key={i} name={item} group='filter' checked={filter === item} onChange={e => setFilter(e.target.value)}/>)}
             </span>
         </form>
     )
