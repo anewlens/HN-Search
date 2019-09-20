@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/HN-Search/static/css/main.498e88b1.chunk.css",
+    "main.css": "/HN-Search/static/css/main.e7a5c09a.chunk.css",
     "main.js": "/HN-Search/static/js/main.fb9234f5.chunk.js",
     "main.js.map": "/HN-Search/static/js/main.fb9234f5.chunk.js.map",
     "runtime~main.js": "/HN-Search/static/js/runtime~main.df135df6.js",
@@ -8,8 +8,8 @@
     "static/js/2.9dce4988.chunk.js": "/HN-Search/static/js/2.9dce4988.chunk.js",
     "static/js/2.9dce4988.chunk.js.map": "/HN-Search/static/js/2.9dce4988.chunk.js.map",
     "index.html": "/HN-Search/index.html",
-    "precache-manifest.7b38f75417642a086301ca950dcb471b.js": "/HN-Search/precache-manifest.7b38f75417642a086301ca950dcb471b.js",
+    "precache-manifest.8b7869642995cb99c60cbea975d92af1.js": "/HN-Search/precache-manifest.8b7869642995cb99c60cbea975d92af1.js",
     "service-worker.js": "/HN-Search/service-worker.js",
-    "static/css/main.498e88b1.chunk.css.map": "/HN-Search/static/css/main.498e88b1.chunk.css.map"
+    "static/css/main.e7a5c09a.chunk.css.map": "/HN-Search/static/css/main.e7a5c09a.chunk.css.map"
   }
 }
