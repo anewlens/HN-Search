@@ -11,20 +11,16 @@ const Results = () => {
     return (
         <section className="results">
             <h2 className="results-title">
-                {results ? `Results for "${results.query}"` : 'Search Above'}
+                {results && `Results for "${results.query}"`}
             </h2>
 
-           {
-              results && (
-                <div className="results-list">
-                    {
-                        (results.hits.length === 0)
-                        ? <p className="results-message">No results for "{results.query}"</p>
-                        : results.hits.map(result => <ResultItem key={result.objectID} result={result}/>)
-                    }
-                </div>
-              )
-            }
+            <div className="results-list">
+                {
+                    (results.hits.length === 0)
+                    ? <p className="results-message">No results for "{results.query}"</p>
+                    : results.hits.map(result => <ResultItem key={result.objectID} result={result}/>)
+                }
+            </div>
 
         </section>
     )
