@@ -9,6 +9,7 @@ import queryAPI from '../../utils/queryAPI.utils'
 import TextInput from '../Inputs/Text/textInput.component'
 import CustomButton from '../CustomButton/customButton .component'
 import RadioInput from '../Inputs/Radio/radioInput.component'
+
 import './search.styles.scss'
 
 const Search = ({ setResults, addQueryToHistory }) => {
@@ -17,6 +18,9 @@ const Search = ({ setResults, addQueryToHistory }) => {
     const [sort, setSort] = useState('relevance')
     const [filter, setFilter] = useState('any')
     const history = useSelector(state => state.history)
+
+    const sortList = ['relevance', 'date']
+    const filterList = ['any', 'story', 'comment', 'poll']
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -36,9 +40,6 @@ const Search = ({ setResults, addQueryToHistory }) => {
         } 
     }
 
-    const handleSort = e => setSort(e.target.value)
-    const handleFilter = e => setFilter(e.target.value)
-
     return (
         <form onSubmit={handleSubmit} className="search">
             <span className='search-bar'>
@@ -54,29 +55,25 @@ const Search = ({ setResults, addQueryToHistory }) => {
 
             <span className='search-radios'>
                 Sort By:
-                <RadioInput  name='relevance' group='sort' checked={sort === 'relevance'} onChange={handleSort}/>
-                <RadioInput  name='date' group='sort' checked={sort === 'date'} onChange={handleSort}/>
+                {sortList.map(item => <RadioInput  name={item} group='sort' checked={sort === item} onChange={e => setSort(e.target.value)}/>)}
             </span>
 
             <span className='search-radios'>
                 Filter:
-                <RadioInput  name='any' group='filter' checked={filter === 'any'} onChange={handleFilter}/>
-                <RadioInput  name='story' group='filter' checked={filter === 'story'} onChange={handleFilter}/>
-                <RadioInput  name='comment' group='filter' checked={filter === 'comment'} onChange={handleFilter}/>
-                <RadioInput  name='poll' group='filter' checked={filter === 'poll'} onChange={handleFilter}/>
+                {filterList.map(item => <RadioInput  name={item} group='filter' checked={filter === item} onChange={e => setFilter(e.target.value)}/>)}
             </span>
         </form>
     )
+}
+
+Search.propTypes = {
+    setResults: PropTypes.func.isRequired,
+    addQueryToHistory: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({
     setResults: results => dispatch(setResults(results)),
     addQueryToHistory: query => dispatch(addQuery(query))
 })
-
-Search.propTypes = {
-    setResults: PropTypes.func.isRequired,
-    addQueryToHistory: PropTypes.func.isRequired
-}
 
 export default  connect(null, mapDispatchToProps)(Search)
