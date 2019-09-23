@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => ({
     addQueryToHistory: query => dispatch(addQuery(query))
 })
 
-export default  connect(null, mapDispatchToProps)(Search)
+export default connect(null, mapDispatchToProps)(Search)
